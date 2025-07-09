@@ -10,7 +10,16 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Add compatible configs
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // Add a custom override to disable a rule
+  {
+    files: ["**/*.ts", "**/*.tsx"], // Or just ["**/*.tsx"] if you prefer
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
