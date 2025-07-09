@@ -34,9 +34,14 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
       });
 
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message);
-    }
+   } catch (err) {
+     if (err instanceof Error) {
+       setError(err.message);
+     } else {
+       setError("An unexpected error occurred");
+     }
+   }
+
   };
 
   return (
