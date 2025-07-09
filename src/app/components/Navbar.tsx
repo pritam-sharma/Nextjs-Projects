@@ -18,9 +18,11 @@ export default function Navbar() {
     return () => listener.subscription.unsubscribe();
   }, []);
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-  };
+const handleLogout = async () => {
+  await supabase.auth.signOut();
+  window.location.href = "/login"; // or "/"
+};
+
 
   return (
     <nav className="bg-white shadow p-4 flex justify-between">

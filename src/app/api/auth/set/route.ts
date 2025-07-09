@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { access_token, refresh_token } = await req.json();
-  console.log("access_token in routes.ts : ", access_token);
   if (!access_token) {
     return NextResponse.json(
       { error: "Missing access token" },

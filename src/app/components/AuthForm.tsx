@@ -25,7 +25,6 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
 
       const access_token = res.data.session?.access_token;
       const refresh_token = res.data.session?.refresh_token;
-
       // Send to API route to store in cookie
       await fetch("/api/auth/set", {
         method: "POST",
