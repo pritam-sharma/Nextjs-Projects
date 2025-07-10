@@ -48,7 +48,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
       onSubmit={handleSubmit}
       className="mt-[100px] bg-white p-6 shadow rounded space-y-4"
     >
-      <h2 className="text-xl font-bold">
+      <h2 className="text-xl font-bold text-black">
         {mode === "signup" ? "Sign Up" : "Login"}
       </h2>
       {error && <p className="text-red-500">{error}</p>}
