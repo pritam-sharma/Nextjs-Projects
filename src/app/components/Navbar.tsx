@@ -27,12 +27,12 @@ const handleLogout = async () => {
   return (
     <nav className="bg-white shadow p-4 flex justify-between">
       <Link href="/">
-        <h3 className="font-bold">🏠 Home</h3>
+        <button className="font-bold">🏠 Home</button>
       </Link>
       {user ? (
         <div className="space-x-4 flex flex-row">
           <Link href="/dashboard">
-            <h3 className="mt-1">Dashboard</h3>
+            <button className="mt-1">Dashboard</button>
           </Link>
           <button
             onClick={handleLogout}
@@ -44,10 +44,10 @@ const handleLogout = async () => {
       ) : (
         <div className="flex flex-row space-x-4">
           <Link href="/login">
-            <h3>Login</h3>
+            <button className="font-bold">Login</button>
           </Link>
           <Link href="/signup">
-            <h3>Sign Up</h3>
+            <button className="font-bold">Sign Up</button>
           </Link>
         </div>
       )}
