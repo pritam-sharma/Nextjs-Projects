@@ -25,6 +25,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
 
       const access_token = res.data.session?.access_token;
       const refresh_token = res.data.session?.refresh_token;
+
       // Send to API route to store in cookie
       await fetch("/api/auth/set", {
         method: "POST",
@@ -33,14 +34,13 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
       });
 
       router.push("/dashboard");
-   } catch (err) {
-     if (err instanceof Error) {
-       setError(err.message);
-     } else {
-       setError("An unexpected error occurred");
-     }
-   }
-
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unexpected error occurred");
+      }
+    }
   };
 
   return (
@@ -55,19 +55,21 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
       <input
         type="email"
         placeholder="Email"
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black placeholder-gray-500"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
+
       <input
         type="password"
         placeholder="Password"
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black placeholder-gray-500"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+
       <button
         type="submit"
         className="w-full py-2 bg-blue-600 text-white rounded"
